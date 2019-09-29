@@ -9,23 +9,23 @@ class CreateBlog extends Component {
     blog: ""
   };
 
-  componentDidMount() {
-    if (localStorage.jwtToken) {
-      let Object = localStorage.getItem("jwtToken");
-      Object = JSON.parse(Object);
-      // console.log(Object);
+  // componentDidMount() {
+  //   if (localStorage.jwtToken) {
+  //     let Object = localStorage.getItem("jwtToken");
+  //     Object = JSON.parse(Object);
+  //     // console.log(Object);
 
-      const obj = {
-        email: Object.email,
-        password: Object.password
-      };
+  //     const obj = {
+  //       email: Object.email,
+  //       password: Object.password
+  //     };
 
-      this.props.loginUser(obj);
-      if (!this.props.auth.isAthenticated) {
-        // this.props.history.push("/login");
-      }
-    }
-  }
+  //     this.props.loginUser(obj);
+  //     if (!this.props.auth.isAthenticated) {
+  //       // this.props.history.push("/login");
+  //     }
+  //   }
+  // }
 
   onChange = e => {
     this.setState({

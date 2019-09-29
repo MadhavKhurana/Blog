@@ -5,6 +5,7 @@ import PrivateRoute from "./PrivateRoute.jsx";
 import thunk from "redux-thunk";
 import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from "./Reducers/index.js";
+import * as authActions from "./Actions/authActions.js";
 
 // LOADING COMPONENTS
 import Navbar from "./Components/Navbar";
@@ -16,14 +17,37 @@ import Comments from "./Components/Comments";
 
 //SETTING UP THE STORE
 const initialState = {};
-const middleware = [thunk];
-const stores = createStore(
-  rootReducer,
-  initialState,
-  compose(applyMiddleware(...middleware))
-);
+// const middleware = [thunk];
+const stores = createStore(rootReducer, applyMiddleware(thunk));
+
+if (localStorage.jwtToken) {
+  let Object = localStorage.getItem("jwtToken");
+  Object = JSON.parse(Object);
+  // console.log(Object);
+
+  const obj = {
+    email: Object.email,
+    password: Object.password
+  };
+
+  stores.dispatch(authActions.loginUser(obj));
+}
 
 class App extends Component {
+  // componentDidMount() {
+  //   if (localStorage.jwtToken) {
+  //     let Object = localStorage.getItem("jwtToken");
+  //     Object = JSON.parse(Object);
+  //     // console.log(Object);
+
+  //     const obj = {
+  //       email: Object.email,
+  //       password: Object.password
+  //     };
+
+  //     stores.dispatch(loginUser(obj));
+  //   }
+  // }
   render() {
     return (
       <Provider store={stores}>

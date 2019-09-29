@@ -10,7 +10,7 @@ module.exports = passport => {
         if (!user) {
           return done(null, false, { message: "No User Found" });
         } else if (user) {
-          if (password == user.password) {
+          if (password === user.password) {
             console.log("SUCCCESSSS");
             return done(null, user);
           } else {

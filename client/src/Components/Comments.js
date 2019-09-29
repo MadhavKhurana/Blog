@@ -9,16 +9,16 @@ class Comments extends Component {
   };
 
   componentDidMount() {
-    if (localStorage.jwtToken) {
-      let Object = localStorage.getItem("jwtToken");
-      Object = JSON.parse(Object);
-      const obj = {
-        email: Object.email,
-        password: Object.password
-      };
+    // if (localStorage.jwtToken) {
+    //   let Object = localStorage.getItem("jwtToken");
+    //   Object = JSON.parse(Object);
+    //   const obj = {
+    //     email: Object.email,
+    //     password: Object.password
+    //   };
 
-      this.props.loginUser(obj);
-    }
+    //   this.props.loginUser(obj);
+    // }
     this.props.getComments(this.props.match.params.id);
   }
 

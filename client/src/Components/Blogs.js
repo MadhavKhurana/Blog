@@ -12,18 +12,18 @@ class Blogs extends Component {
   };
 
   componentDidMount() {
-    if (localStorage.jwtToken) {
-      let Object = localStorage.getItem("jwtToken");
-      Object = JSON.parse(Object);
-      // console.log(Object);
+    // if (localStorage.jwtToken) {
+    //   let Object = localStorage.getItem("jwtToken");
+    //   Object = JSON.parse(Object);
+    //   // console.log(Object);
 
-      const obj = {
-        email: Object.email,
-        password: Object.password
-      };
+    //   const obj = {
+    //     email: Object.email,
+    //     password: Object.password
+    //   };
 
-      this.props.loginUser(obj);
-    }
+    //   this.props.loginUser(obj);
+    // }
     this.props.getAllBlogs();
   }
 
