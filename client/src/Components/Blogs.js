@@ -26,6 +26,7 @@ class Blogs extends Component {
     }
     this.props.getAllBlogs();
   }
+
   componentWillReceiveProps(next) {
     this.setState({ blogs: next.blog.blogs });
   }

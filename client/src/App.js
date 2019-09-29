@@ -17,7 +17,11 @@ import Comments from "./Components/Comments";
 //SETTING UP THE STORE
 const initialState = {};
 const middleware = [thunk];
-const stores = createStore(rootReducer, initialState);
+const stores = createStore(
+  rootReducer,
+  initialState,
+  compose(applyMiddleware(...middleware))
+);
 
 class App extends Component {
   render() {
